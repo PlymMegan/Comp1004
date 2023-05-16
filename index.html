@@ -1,0 +1,128 @@
+    <!document html>
+<html>
+<head>
+    <title>Account</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/59c8f1bbf0.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+</head>
+
+<body>
+    <script type="module" src="./index.js"></script>
+    <header>
+        <a href="#" class="logo">Logo</a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Games</a></li>
+            <li><a href="#">Messages</a></li>
+            <li><a href="#">Account</a></li>
+        </ul>
+    </header>
+    <section>
+        <img src="pimgs/Stars.png" id="stars">
+        <img src="pimgs/Moon.png" id="moon">
+        <h2 id="text">Account</h2>
+        <a href="#sec" id="btn">Settings</a>
+    </section>
+
+
+    <div class="sec" id="sec">
+
+        <h1 class="h3 mb-3">Settings</h1>
+        <h5 class="public_info">User ID</h5>
+        <br />
+        <br />
+        <h5 class="public_info">Public info</h5>
+        <form>
+            <label for="username">Username</label>
+            <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
+            <input type="text" name="uname" id="uname" placeholder="Username" />
+            <br />
+
+            <label for="bio">Biography</label>
+            <input type="text" name="bio" id="bio" placeholder="Biography" />
+            <br />
+            <br />
+            <h5 class="public_info">Personal info</h5>
+            <label for="fName">First name</label>
+            <input type="text" name="firstName" id="fName" placeholder="Firstname" />
+            <br />
+            <label for="lName">Last name</label>
+            <input type="text" name="lastName" id="lName" placeholder="Lastname" />
+            <br />
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="@gmail.com" />
+            <br />
+            <label for="inputAddress">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNum" placeholder="+44">
+            <br />
+            <div class="tab-pane fade" id="password" role="tabpanel">
+                <br />
+                <h5 class="card-title">Password</h5>
+                <label for="cpass">Current password</label>
+                <input type="password" name="cpass" id="cpass" />
+                <small><a href="#">Forgot your password?</a></small>
+                <br />
+                <label for="npass">New password</label>
+                <input type="password" name="npass" id="npass" />
+                <br />
+                <label for="vpass">Verify password</label>
+                <input type="password" name="vpass" id="vpass" />
+                <br />
+                <button type="submit">Save changes</button>
+                <div class="delete">
+                    <button type="submit" class="btn btn-primary">Delete Account</button>
+                </div>
+        </form>
+    </div>
+
+    <script>
+        let stars = document.getElementById("stars");
+        let moon = document.getElementById("moon");
+        let text = document.getElementById("text");
+        let btn = document.getElementById("btn");
+        let header = document.querySelector("header");
+
+        window.addEventListener("scroll", function () {
+            let value = this.window.scrollY;
+            stars.style.left = value * 0.25 + "px";
+            moon.style.top = value * 1.05 + "px";
+            text.style.marginTop = value * 1.2 + "px";
+            btn.style.marginTop = value * 1.5 + "px";
+            header.style.top = value * 0.5 + "px";
+        })
+
+        const change = document.querySelector('.change')
+
+        change.addEventListener('click', function () {
+            change.classList.toggle('dark')
+            change.classList.toggle('fa-solid fa-lock')
+            change.classList.toggle('fa-solid fa-lock-open')
+            if (change.textContent === 'OFF') {
+                change.textContent = 'ON'
+            } else {
+                change.textContent = 'OFF'
+            }
+        })
+
+        var name = document.getElementById('uname');
+        var bio = document.getElementById('bio');
+        var firstname = document.getElementById('fname');
+        var lastname = document.getElementById('lname');
+        var email = document.getElementById('email');
+        var phonenum = document.getElementById('phoneNum');
+        var password = document.getElementById('npass');
+
+
+        var lowerCaseLetters = /[a-z]/g;
+        var upperCaseLetters = /[A-Z]/g;
+        var numbers = /[0-9]/g;
+
+        localStorage.setItem('name', name.value);
+        localStorage.setItem('pw', pw.value);
+        alert('Details updated');
+    
+
+    </script>
+</body>
+</html>
